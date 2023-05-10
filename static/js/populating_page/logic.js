@@ -145,7 +145,7 @@ var valueLookup = new Map();
 var allStartupsTotalCount = 0;
 var allStartupsTotalFunding = 0;
 
-fetch("./samples.json").then(response => response.json()).then(function addResults(obj) {
+fetch("./full_table.json").then(response => response.json()).then(function addResults(obj) {
     for (let item of Object.values(obj)) {
         let lat = item["Latitude"]
         let lng = item["Longitude"]
