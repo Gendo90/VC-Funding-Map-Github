@@ -66,7 +66,7 @@ function addCountry(country){
 // }).then(fetch("../../Test_Data / full_table.json").then(response => response.json()))
 
 Promise.all([fetch("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson")
-    .then(a => a.json()), fetch("./samples.json").then(response => response.json())])
+    .then(a => a.json()), fetch("./full_table.json").then(response => response.json())])
     .then(([countryGeoJSON, ourData]) => {
         console.log([countryGeoJSON, ourData])
         //first group our data by country
