@@ -12,9 +12,10 @@ Promise.all(cities.map((a, i) => cityDataFetch(a, i)))
     })
     .then(() => myChart())
 
-function cityDataFetch(city) {
+function cityDataFetch(city, i) {
     return new Promise((resolve, reject) => {
-        fetch(`./Test_Data/${city}`).then(response => resolve(response.json()))
+        // fetch(`./Test_Data/${city}`).then(response => resolve(response.json()))
+        fetch(`./full_table.json`).then(response => response.json()).then(data => Object.values(data).filter(a => a.city === city && a.country_code === countryCode[i])[0]).then(result => resolve(result))
     })
 }
 

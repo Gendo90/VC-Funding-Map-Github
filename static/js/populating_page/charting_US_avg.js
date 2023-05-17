@@ -13,7 +13,8 @@ Promise.all(cities.map(a => cityDataFetch(a)))
 
 function cityDataFetch(city){
     return new Promise((resolve, reject) => {
-        fetch(`./Test_Data/${city}`).then(response => resolve(response.json()))
+        // fetch(`./Test_Data/${city}`).then(response => resolve(response.json()))
+        fetch(`./full_table.json`).then(response => response.json()).then(data => Object.values(data).filter(a => a.city === city && a.country_code === "USA")[0]).then(result => resolve(result))
     })
 }
 
