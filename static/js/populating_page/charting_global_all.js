@@ -9,6 +9,7 @@ var countryCode = ["CHN", "GBR", "RUS", "CHN", "IND"];
 //And then can load the chart!
 Promise.all(cities.map((a, i) => cityDataFetch(a, i)))
     .then(values => {
+        console.log(values)
         values.forEach(addChart)
     })
     .then(() => myChart())
