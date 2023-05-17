@@ -15,7 +15,7 @@ Promise.all(cities.map((a, i) => cityDataFetch(a, i)))
 
 function cityDataFetch(city) {
     return new Promise((resolve, reject) => {
-        fetch(`./Test_Data/${city}`).then(response => resolve(response.json()))
+        fetch(`./full_table.json`).then(response => response.json()).then(data => data.filter(a => a.city === city)).then(result => resolve(result))
     })
 }
 
