@@ -14,9 +14,9 @@ Promise.all(cities.map((a, i) => cityDataFetch(a, i)))
     })
     .then(() => myChart())
 
-function cityDataFetch(city) {
+function cityDataFetch(city, i) {
     return new Promise((resolve, reject) => {
-        fetch(`./full_table.json`).then(response => response.json()).then(data => Object.values(data).filter(a => a.city === city)).then(result => resolve(result))
+        fetch(`./full_table.json`).then(response => response.json()).then(data => Object.values(data).filter(a => a.city === city && a.country_code === countryCode[i)).then(result => resolve(result))
     })
 }
 
