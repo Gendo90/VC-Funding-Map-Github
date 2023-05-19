@@ -5,7 +5,7 @@ This project was developed to get a general idea of Venture Capital funding thro
 
 The data was primarily sourced from [Kaggle.com](https://www.kaggle.com/) as a replication of [Crunchbase](https://www.crunchbase.com/) data from the years prior to 2015. This data was supplemented by geocoding location data using the [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start). More details about the data are relayed in the following section.
 
-This web application is available [here](https://frozen-dawn-61622.herokuapp.com/), hosted on Heroku as a data dashboard. Enjoy!
+This web application is available [here](https://gendo90.github.io/VC-Funding-Map-Github/), hosted on GitHub Pages as a data dashboard. Enjoy!
 
 ## Data Sources & Cleaning
 
@@ -96,24 +96,6 @@ There are four different bar charts available on this data dashboard, which disp
 <img src="./README Images/total_funding_us_cities.png">
 
 <!-- ## Result Highlights -->
-
-## Application Startup Notes
-
-## APIs
-
-This web application uses two main RESTful APIs to serve JSON data from the PostgreSQL database connected to the Flask server using SQLAlchemy.
-
-### ./samples.json
-
-The first of these APIs is essentially a "full copy" of the database records - which is unusual for an API but was used in this case because our total (cleaned) records include fewer than 4000 rows, and the project had a high time constraints (1-week turnaround time). This API is used to serve the two geographical map visualizations on this dashboard.
-
-This API is available at the route "domain/samples.json", where "domain" represents the server address of the website. 
-
-### ./api/city/[country-code]/[city-name]
-
-The second of these two RESTful APIs is a more traditional, dynamic API that returns all the information for a single city in the database given the city's name and country code as parameters in the API route.
-
-This API is available at the route "domain/api/city/[country-code]/[city-name]", where "domain" represents the server address of the website and [city-name] represents the variable city name whose data will be returned by the API once the request is received by the Flask app. The [country-code] parameter specifies the country in which the city is located (using the ISO alpha-3 three-letter formatting), since there are some cities with the same name in multiple countries.
 
 ## Planned Features
 
